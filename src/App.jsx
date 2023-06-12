@@ -52,7 +52,11 @@ function App() {
     const url = BASE_URL + `/users/${id}/`
 
     axios.delete(url)
-      .then(() => getAllUsers())
+      .then(() => {
+        getAllUsers(),
+        setIsLoading(null)
+        setIsDone("deleted")
+      })
       .catch((err) => console.log(err))
   }
 
@@ -101,7 +105,8 @@ function App() {
       users={users} 
       deleteUser={deleteUser} 
       changeShowModal={changeShowModal} 
-      setIsUserToUpdate={setIsUserToUpdate}/>
+      setIsUserToUpdate={setIsUserToUpdate}
+      setIsLoading={setIsLoading}/>
 
       <Loader isLoading={isLoading} setIsLoading={setIsLoading}/>
       <ModalAdvices setIsDone={setIsDone} isDone={isDone}/>

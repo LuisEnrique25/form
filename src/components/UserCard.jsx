@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UserCard = ({user, deleteUser, changeShowModal, setIsUserToUpdate}) => {
+const UserCard = ({user, deleteUser, changeShowModal, setIsUserToUpdate, setIsLoading}) => {
 
     const handleClickUpdate = () =>{
         changeShowModal()
@@ -8,6 +8,7 @@ const UserCard = ({user, deleteUser, changeShowModal, setIsUserToUpdate}) => {
     }
 
     const handleClickDelte = () =>{
+        setIsLoading("delete")
         deleteUser(user.id)
     }
   return (
