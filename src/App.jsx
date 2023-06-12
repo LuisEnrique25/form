@@ -24,7 +24,7 @@ function App() {
   const [users, setUsers] = useState([])
   const [isUserToUpdate, setIsUserToUpdate] = useState(null)
   const [isShowModal, setIsShowModal] = useState(false)
-  const [ isCreated, setIsCreated] = useState(false)
+  const [ isDone, setIsDone] = useState(false)
   const [isLoading, setIsLoading] = useState(null)
 
   const changeShowModal = () => setIsShowModal(!isShowModal)
@@ -43,7 +43,7 @@ function App() {
         getAllUsers()
         resetModalForm(reset) 
         setIsLoading(null)
-        setIsCreated(true) 
+        setIsDone("created") 
       })
       .catch((err) => console.log(err))
   }
@@ -65,6 +65,7 @@ function App() {
         resetModalForm(reset)
         setIsLoading(null)
         setIsUserToUpdate(null)
+        setIsDone("updated")
       })
       .catch((err) => console.log(err))
   }
@@ -103,7 +104,7 @@ function App() {
       setIsUserToUpdate={setIsUserToUpdate}/>
 
       <Loader isLoading={isLoading} setIsLoading={setIsLoading}/>
-      <ModalAdvices setIsCreated={setIsCreated} isCreated={isCreated}/>
+      <ModalAdvices setIsDone={setIsDone} isDone={isDone}/>
       <DarkMode/>
     </main>
   )
