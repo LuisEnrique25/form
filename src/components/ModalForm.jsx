@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
-const ModalForm = ({isShowModal, changeShowModal, createUser, isUserToUpdate, setIsUserToUpdate, updateUser, resetModalForm}) => {
+const ModalForm = ({isShowModal, changeShowModal, createUser, isUserToUpdate, setIsUserToUpdate, updateUser, resetModalForm, setIsLoading}) => {
 
     const {register, handleSubmit, reset, formState: {errors}} =  useForm()
 
     const submit = (data) => {
+        
         if(!data.birthday) data.birthday = null
         if(isUserToUpdate){
+            setIsLoading("update")
             updateUser(data, reset)
         }else{
+            setIsLoading("create")
             createUser(data, reset)
 
         }

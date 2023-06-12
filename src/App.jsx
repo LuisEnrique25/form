@@ -6,6 +6,8 @@ import ModalForm from './components/ModalForm'
 import axios from 'axios'
 import UsersContainer from './components/UsersContainer'
 import ModalAdvices from './components/ModalAdvices'
+import { set } from 'react-hook-form'
+import Loader from './components/Loader'
 
 
 
@@ -22,6 +24,8 @@ function App() {
   const [users, setUsers] = useState([])
   const [isUserToUpdate, setIsUserToUpdate] = useState(null)
   const [isShowModal, setIsShowModal] = useState(false)
+  const [ isCreated, setIsCreated] = useState(false)
+  const [isLoading, setIsLoading] = useState(null)
 
   const changeShowModal = () => setIsShowModal(!isShowModal)
 
@@ -37,7 +41,9 @@ function App() {
     axios.post(url, data)
       .then(() => {
         getAllUsers()
-        resetModalForm(reset)  
+        resetModalForm(reset) 
+        setIsLoading(null)
+        setIsCreated(true) 
       })
       .catch((err) => console.log(err))
   }
@@ -57,6 +63,7 @@ function App() {
       .then(() => {
         getAllUsers(), 
         resetModalForm(reset)
+        setIsLoading(null)
         setIsUserToUpdate(null)
       })
       .catch((err) => console.log(err))
@@ -78,8 +85,10 @@ function App() {
 
       {/**
        * 
+      */}
       <ModalForm 
-      isShowModal={isShowModal} 
+      isShowModal={isShowModal}
+      setIsLoading={setIsLoading}
       changeShowModal={changeShowModal} 
       createUser={createUser} 
       isUserToUpdate={isUserToUpdate} 
@@ -92,10 +101,9 @@ function App() {
       deleteUser={deleteUser} 
       changeShowModal={changeShowModal} 
       setIsUserToUpdate={setIsUserToUpdate}/>
-       */}
 
-
-      <ModalAdvices/>
+      <Loader isLoading={isLoading} setIsLoading={setIsLoading}/>
+      <ModalAdvices setIsCreated={setIsCreated} isCreated={isCreated}/>
       <DarkMode/>
     </main>
   )
