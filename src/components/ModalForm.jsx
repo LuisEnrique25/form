@@ -32,7 +32,7 @@ const ModalForm = ({isShowModal, changeShowModal, createUser, isUserToUpdate, se
 
 
   return (
-    <section className={`fixed top-0 left-0 right-0 h-screen bg-black/40 grid place-content-center ${isShowModal ? "visible opacity-100" : "invisible opacity-0"} transition-opacity z-20` }>
+    <section className={`fixed top-0 left-0 right-0 h-screen bg-black/40 grid place-content-center ${isShowModal ? "visible opacity-100" : "invisible opacity-0"} transition-opacity` }>
         <form onSubmit={handleSubmit(submit)} className='bg-white dark:bg-slate-700 w-[280px] p-4 text-sm sm:text-base sm:w-[300px] relative'>
             <h3 className='font-semibold text-xl pb-1'>{isUserToUpdate ? "Editar Usuario" : "Nuevo Usuario"}</h3>
            

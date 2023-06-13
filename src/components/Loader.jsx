@@ -1,6 +1,6 @@
 const Loader = ({isLoading}) => {
     return (
-      <section className={`fixed top-0 left-0 right-0 h-screen bg-black/40 grid place-content-center ${isLoading ? "visible opacity-100" : "invisible opacity-0"} transition-opacity z-30` }>
+      <section className={`fixed top-0 left-0 right-0 h-screen bg-black/40 grid place-content-center ${isLoading ? "visible opacity-100" : "invisible opacity-0"} transition-opacity` }>
           <div className='bg-white dark:bg-slate-800 w-[280px] rounded-md p-4 text-sm sm:text-base sm:w-[300px] relative flex justify-center items-center flex-col'>
              {isLoading === "update" && <h3>Guardando cambios</h3> }
              {isLoading === "create" && <h3>Creando Usuario</h3> }
