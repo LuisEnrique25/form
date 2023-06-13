@@ -26,7 +26,7 @@ const UserCard = ({user, deleteUser, changeShowModal, setIsUserToUpdate, setIsLo
         </div>
             <div className='flex justify-end gap-2 pt-2'>
                 <button onClick={handleClickDelte} className='border-[1px] border-[#D93F3F] rounded-sm overflow-hidden'><i  className='bx bx-trash bg-[#D85D5D] p-2 hover:bg-red-700 hover:text-white'></i></button>
-                <button onClick={handleClickUpdate} className='border-[1px] border-[#BDBDBD] rounded-sm overflow-hidden'><i className='bx bx-pencil bg-[#F6F6F6] p-2 hover:bg-blue-900  hover:text-white'></i></button>
+                <button onClick={handleClickUpdate} className='border-[1px] border-[#BDBDBD] dark:hover:border-blue-950 rounded-sm overflow-hidden dark:text-black'><i className='bx bx-pencil bg-[#F6F6F6] p-2 hover:bg-blue-900  hover:text-white'></i></button>
             </div>
     </article>
   )

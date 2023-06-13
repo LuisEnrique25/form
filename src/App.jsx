@@ -85,7 +85,7 @@ function App() {
   }, [])
 
   return (
-    <main className='min-h-screen w-full font-["Roboto"]'>
+    <main className='min-h-screen w-full font-["Roboto"] dark:bg-slate-800 dark:text-white transition-colors ease-out'>
       <Header changeShowModal={changeShowModal}/>
 
       {/**
